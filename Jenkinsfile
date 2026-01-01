@@ -2,7 +2,6 @@ pipeline {
     agent {
         docker {
             image 'nihi1ist/builder:0.1-noble'
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
         }
     }
     stages {
@@ -31,10 +30,10 @@ pipeline {
             steps {
                 sshagent(credentials: ['test-without-passwd']) {
                     sh '''ssh nihi1ist@jenkins.nixway.org << EOF
-                    cd ~/docker-images/testwebpage
-                    docker pull nihi1ist/mytestwebpage:0.3
-                    docker-compose up -d
-                    EOF'''
+cd ~/docker-images/testwebpage
+docker pull nihi1ist/mytestwebpage:0.3
+docker compose up -d
+EOF'''
                 }
             }
         }
