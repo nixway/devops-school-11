@@ -1,0 +1,6 @@
+services:
+  tomcat:
+    image: nihi1ist/mytestwebpage:0.3
+    ports:
+      - '127.0.0.2:8081:8080'
+      - '127.0.0.2:8443:8443'
